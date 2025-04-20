@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
 
     public static $permissions = [
-        'arsip' => ['user'],
+        'arsip' => ['user', 'admin'],
         'unit' => ['admin'],
         'user' => ['admin'],
     ];

@@ -19,11 +19,10 @@ class ArsipPensiunFactory extends Factory
         return [
             'nama' => $this->faker->name(),
             'nomor_pegawai' => $this->faker->unique()->numerify('NP-#####'),
+            'nomor_sk' => $this->faker->unique()->numerify('SK-#####'),
             'unit_kerja' => $this->faker->numberBetween(1, 6),
             'tanggal_surat' => $this->faker->date(),
             'tanggal_diterima' => $this->faker->dateTime(),
-            'dokumen1' => $this->faker->word(),
-            'dokumen2' => $this->faker->word(),
         ];
     }
 }

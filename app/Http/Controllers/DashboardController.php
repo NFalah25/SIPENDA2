@@ -37,11 +37,26 @@ class DashboardController extends Controller
             ->orderBy('updated_at', 'desc');
 
         if ($request->unit) {
-            $query->where('unit_kerja', $request->unit);
+            $query = DB::table('arsip_pensiun')
+            ->join('unit_kerja', 'arsip_pensiun.unit_kerja', '=', 'unit_kerja.id')
+            ->select(
+                'arsip_pensiun.id',
+                'arsip_pensiun.nama',
+                'arsip_pensiun.updated_at',
+                'arsip_pensiun.nomor_sk',
+                'unit_kerja.unit_kerja as unit_kerja',
+                'arsip_pensiun.tanggal_surat',
+                'arsip_pensiun.tanggal_diterima',
+                'arsip_pensiun.dokumen1',
+                'arsip_pensiun.dokumen2'
+            )
+            ->where('arsip_pensiun.unit_kerja', $request->unit)
+            ->orderBy('updated_at', 'desc');
         }
 
         return DataTables::of($query)
             ->addIndexColumn()
+
             ->editColumn('updated_at', function ($row) {
                 return Carbon::parse($row->updated_at)->format('d-m-Y');
             })
