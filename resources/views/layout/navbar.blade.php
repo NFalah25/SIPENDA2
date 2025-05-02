@@ -14,7 +14,7 @@
     <li class="dropdown">
         <a href="#" data-toggle="dropdown"
             class="nav-link dropdown-toggle nav-link-md nav-link-user tw-flex tw-items-center ">
-            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block"> @auth
                     {{ Auth::user()->name }}
                 @endauth </div>

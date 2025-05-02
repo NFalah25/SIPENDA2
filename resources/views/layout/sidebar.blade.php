@@ -7,15 +7,18 @@
     </div>
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li><a class="nav-link" href="{{ route('dashboard') }}"><i class="far fa-folder"></i> <span>Arsip Pensiun</span></a></li>
+        <li><a class="nav-link" href="{{ route('dashboard') }}"><i class="far fa-folder"></i> <span>Arsip
+                    Pensiun</span></a></li>
         @if (Auth::user()->role == 'admin')
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
                     <li><a class="nav-link" href="{{ route('unit.index') }}">Unit</a></li>
                 </ul>
-            </li>
+            </li> --}}
+            <li><a class="nav-link" href="{{ route('unit.index') }}"><i class="fas fa-tag"></i> <span>Manajemen
+                        Unit</span></a></li>
             <li><a class="nav-link" href="{{ route('user.index') }}"><i class="far fa-user"></i> <span>Manajemen
                         User</span></a></li>
         @endif
